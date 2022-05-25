@@ -13,6 +13,6 @@ namespace Vehicles.API.Data.Entities
         [Display(Name ="Tipo de vehiculo")]
         [MaxLength(50,ErrorMessage ="El campo {0} no puede tener mas de {1} caracteres.")]
         [Required(ErrorMessage ="El campo {0} es obligatorio.")]
-        public int Description { get; set; }
+        public string Description { get; set; }
     }
 }
