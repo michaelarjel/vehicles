@@ -22,7 +22,7 @@ namespace Vehicles.API.Controllers
         // GET: VehiclesTypes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VehiclesTypes.ToListAsync());
+            return View(await _context.VehicleTypes.ToListAsync());
         }
 
         // GET: VehiclesTypes/Details/5
@@ -33,7 +33,7 @@ namespace Vehicles.API.Controllers
                 return NotFound();
             }
 
-            var vehiclesType = await _context.VehiclesTypes
+            var vehiclesType = await _context.VehicleTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehiclesType == null)
             {
@@ -73,7 +73,7 @@ namespace Vehicles.API.Controllers
                 return NotFound();
             }
 
-            var vehiclesType = await _context.VehiclesTypes.FindAsync(id);
+            var vehiclesType = await _context.VehicleTypes.FindAsync(id);
             if (vehiclesType == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Vehicles.API.Controllers
                 return NotFound();
             }
 
-            var vehiclesType = await _context.VehiclesTypes
+            var vehiclesType = await _context.VehicleTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehiclesType == null)
             {
@@ -139,15 +139,15 @@ namespace Vehicles.API.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vehiclesType = await _context.VehiclesTypes.FindAsync(id);
-            _context.VehiclesTypes.Remove(vehiclesType);
+            var vehiclesType = await _context.VehicleTypes.FindAsync(id);
+            _context.VehicleTypes.Remove(vehiclesType);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VehiclesTypeExists(int id)
         {
-            return _context.VehiclesTypes.Any(e => e.Id == id);
+            return _context.VehicleTypes.Any(e => e.Id == id);
         }
     }
 }
